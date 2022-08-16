@@ -54,9 +54,9 @@ module nodeService 'br/public:app/dapr-containerapp:1.0.1' = {
     location: location
     containerAppEnvName: myenv.outputs.containerAppEnvironmentName
     containerAppName: 'node-app'
-    revisionMode: 'Multiple'
     containerImage: nodeImage
-    targetPort: 300
+    revisionMode: 'Multiple'
+    targetPort: 3000
     environmentVariables: [
       {
         name: 'ORDER_SERVICE_NAME'

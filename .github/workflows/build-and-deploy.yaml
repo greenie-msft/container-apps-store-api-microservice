@@ -106,14 +106,7 @@ jobs:
             az group create -g ${{ secrets.RESOURCE_GROUP }} -l eastus
             az deployment group create -g ${{ secrets.RESOURCE_GROUP }} -f ./deploy/main.bicep \
              -p \
-                minReplicas=0 \
                 nodeImage='${{ needs.package-services.outputs.containerImage-node }}' \
-                nodePort=3000 \
                 pythonImage='${{ needs.package-services.outputs.containerImage-python }}' \
-                pythonPort=5000 \
                 goImage='${{ needs.package-services.outputs.containerImage-go }}' \
-                goPort=8050 \
-                containerRegistry=${{ env.REGISTRY }} \
-                containerRegistryUsername=${{ github.actor }} \
-                containerRegistryPassword=${{ secrets.GITHUB_TOKEN }} \
                 deployApim=false
